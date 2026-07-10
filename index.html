@@ -7,20 +7,10 @@
   <!-- Google Fonts for Comic Book & Modern Retro Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Creepster&family=Montserrat:wght@400;700;900&family=Special+Elite&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Dimensional Splash Enter Screen -->
-  <div class="dimension-splash" id="splash-screen">
-    <div class="splash-box panel-yellow">
-      <div class="spider-sense-glow"></div>
-      <h1 class="splash-title">WARNING: DIMENSIONAL ANOMALY DETECTED</h1>
-      <p class="splash-text">A portal into Rayyan's portfolio-verse is ready to open.</p>
-      <button class="splash-btn" id="enter-universe-btn">ENTER UNIVERSE</button>
-    </div>
-  </div>
 
   <!-- Background Glitch Canvas & Texture Overlays -->
   <canvas id="bg-canvas"></canvas>
@@ -33,80 +23,68 @@
 
   <!-- Main Container -->
   <div class="portfolio-container">
-    
-    <!-- Comic Book Cover Header / Hero -->
-    <header class="hero-cover">
-      <!-- Comic Corner Badge -->
-      <div class="comic-badge">
-        <div class="badge-row-1">RAYYAN COMICS</div>
-        <div class="badge-row-2">
-          <span class="badge-issue">#01</span>
-          <span class="badge-price">12¢</span>
-        </div>
-        <div class="badge-row-3">JUNE</div>
-      </div>
 
-      <!-- Hero Main Panel -->
-      <div class="hero-main-panel">
-        <h1 class="logo-text" data-text="RAYYAN">RAYYAN</h1>
-        <div class="glitch-subtitle">INTO THE PORTFOLIO-VERSE</div>
-        
-        <div class="hero-leap-container">
-          <div class="hero-leap-panel" id="leap-panel">
-            <div class="leap-image-glow"></div>
-            <div class="leap-image" style="background-image: url('miles-cutout.png');"></div>
-            <!-- Spider-Sense Waves container positioned near Miles' head -->
-            <div class="spider-sense-container" id="spider-sense">
-              <svg class="spider-sense-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <!-- Curved waves radiating from head -->
-                <path d="M 32,45 Q 15,35 22,15" class="sense-path path-1" />
-                <path d="M 27,50 Q 5,37 12,10" class="sense-path path-2" />
-                <path d="M 68,45 Q 85,35 78,15" class="sense-path path-1" />
-                <path d="M 73,50 Q 95,37 88,10" class="sense-path path-2" />
-              </svg>
+    <!-- Floating Sticky Glassmorphism Navbar -->
+    <nav class="sticky-nav">
+      <div class="nav-pill">
+        <a href="#about" class="nav-link active">About</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#photography" class="nav-link">Photography</a>
+      </div>
+    </nav>
+
+    <!-- Bento Hero Section -->
+    <header class="bento-hero-section" id="about">
+      <div class="bento-grid hero-grid">
+        <!-- Card 1: Main Introduction (Bio + Roles) -->
+        <div class="bento-card bio-card span-2">
+          <div class="card-glow-layer" style="--glow-color: var(--color-red)"></div>
+          <div class="card-inner">
+            <h1 class="hero-title">Hi, I'm Rayyan <span class="wave">👋</span></h1>
+            <div class="role-container">
+              Product Manager &amp; Builder
+            </div>
+            <p class="hero-bio">
+              Alright, let's do this one last time. My name is <strong class="text-highlight">Rayyan</strong>. I'm a student, Product Manager, photographer, and Spider-Man enthusiast. When I'm not saving the day, I build AI-powered products, explore how technology can solve real problems, and document my adventures through photography. This portfolio is a collection of the things I've built, captured, and learned along the way. You probably know the rest.
+            </p>
+            <div class="hero-social-pills">
+              <a href="https://www.linkedin.com/in/rayyanadnan" target="_blank" class="social-pill">
+                <span class="icon">💼</span> LinkedIn
+              </a>
+              <a href="https://twitter.com/Rayyanbz" target="_blank" class="social-pill">
+                <span class="icon">🐦</span> Twitter
+              </a>
+              <a href="mailto:rayyanad22@gmail.com" class="social-pill">
+                <span class="icon">✉️</span> Email
+              </a>
             </div>
           </div>
         </div>
-
-        <p class="hero-intro">
-          "Alright, let's do this one last time. My name is <span class="highlight red">RAYYAN</span>. I'm a student, Product Manager, photographer, and Spider-Man enthusiast. When I'm not saving the day, I'm building AI-powered products, exploring how technology can solve real problems, and documenting my Spider adventures through photography. This portfolio is a collection of the things I've built, captured, and learned along the way. You probably know the rest."
-        </p>
-      </div>
-
-      <!-- Comic Barcode & Stamp -->
-      <div class="comic-footer-details">
-        <div class="barcode">
-          <span>||||| | ||| || |||| |</span>
-          <span class="barcode-num">0444-d022-4907</span>
+        <!-- Card 2: Skills Bento Box -->
+        <div class="bento-card skills-card">
+          <div class="card-glow-layer" style="--glow-color: var(--color-yellow)"></div>
+          <div class="card-inner">
+            <h3 class="card-heading">SKILLS & TECH</h3>
+            <div class="skills-tag-cloud">
+              <span class="skill-tag" style="--accent: var(--color-red)">Product Management</span>
+              <span class="skill-tag" style="--accent: var(--color-blue)">Python</span>
+              <span class="skill-tag" style="--accent: var(--color-yellow)">React / Next.js</span>
+              <span class="skill-tag" style="--accent: var(--color-purple)">PostgreSQL</span>
+              <span class="skill-tag" style="--accent: var(--color-blue)">Machine Learning</span>
+              <span class="skill-tag" style="--accent: var(--color-red)">Product Strategy</span>
+              <span class="skill-tag" style="--accent: var(--color-purple)">User Research</span>
+              <span class="skill-tag" style="--accent: var(--color-yellow)">System Design</span>
+              <span class="skill-tag" style="--accent: var(--color-blue)">Git & GitHub</span>
+              <span class="skill-tag" style="--accent: var(--color-red)">HTML / CSS / JS</span>
+              <span class="skill-tag" style="--accent: var(--color-yellow)">Photography</span>
+            </div>
+          </div>
         </div>
-        <div class="approved-stamp">APPROVED BY THE PORTFOLIO CODE AUTHORITY</div>
       </div>
     </header>
 
-    <!-- Comic panel styled Navigation -->
-    <nav class="comic-nav">
-      <a href="#experience" class="nav-panel panel-red">
-        <div class="panel-inner">
-          <span class="panel-num">01</span>
-          <h2 class="panel-title">EXPERIENCE</h2>
-          <p class="panel-desc">Brooklyn subway system journey</p>
-        </div>
-      </a>
-      <a href="#projects" class="nav-panel panel-blue">
-        <div class="panel-inner">
-          <span class="panel-num">02</span>
-          <h2 class="panel-title">PROJECTS</h2>
-          <p class="panel-desc">Dimensional builds & codebases</p>
-        </div>
-      </a>
-      <a href="#photography" class="nav-panel panel-purple">
-        <div class="panel-inner">
-          <span class="panel-num">03</span>
-          <h2 class="panel-title">PHOTOGRAPHY</h2>
-          <p class="panel-desc">Shots from the multiverse lens</p>
-        </div>
-      </a>
-    </nav>
+
 
     <!-- Experience Section (Simplified Timeline) -->
     <section id="experience" class="portfolio-section">
@@ -177,12 +155,11 @@
         </div>
 
         <!-- Timeline Item 4 -->
-        <div class="timeline-item panel-purple" style="position: relative; border: var(--comic-border); background: #000000; padding: 25px; transition: transform var(--transition-fast);">
-          <!-- Added purple timeline item style inline since we didn't add .panel-purple to timeline-dot in css, will use black dot with purple border -->
-          <div class="timeline-dot" style="background-color: var(--color-purple, #b763f0);"></div>
+        <div class="timeline-item panel-purple">
+          <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-header">
-              <h3 class="exp-title" style="color: var(--color-purple, #b763f0);">Analytics Intern</h3>
+              <h3 class="exp-title">Analytics Intern</h3>
             </div>
             <h4 class="exp-company">PepsiCo</h4>
             <p class="exp-desc" style="margin-bottom: 10px;">
@@ -202,89 +179,91 @@
     <!-- Projects Section -->
     <section id="projects" class="portfolio-section">
       <div class="section-header-panel red-stripe">
-        <h2 class="section-title">WEB-SHOOTER PROTOTYPES & SIDE PROJECTS</h2>
-        <div class="action-tag">PROJECT FILES</div>
+        <h2 class="section-title">PROJECTS & DEPLOYMENTS</h2>
+        <div class="action-tag">BUILD FILES</div>
       </div>
 
-      <!-- Filters in speech bubble style -->
-      <div class="filter-container">
-        <span class="speech-label">SELECT CATEGORY:</span>
-        <div class="bubble-filters">
-          <button class="filter-bubble active" data-filter="all">ALL DEPLOYMENTS</button>
-          <button class="filter-bubble" data-filter="product">PRODUCT</button>
-          <button class="filter-bubble" data-filter="ml">ML</button>
-        </div>
-      </div>
-
-      <!-- Detail View (Hidden by default) -->
-      <div id="project-detail-view" class="project-detail-view hidden">
-        <button id="back-to-grid" class="back-btn">&larr; BACK TO GRID</button>
-        
-        <div class="detail-header panel-red">
-          <h2 id="detail-title" class="detail-title">PROJECT TITLE</h2>
-          <div class="action-tag">CLASSIFIED</div>
-        </div>
-        
-        <div class="detail-content">
-          <div class="media-container halftone-bg" style="--color-main: var(--color-blue)">
-            <div id="detail-video-placeholder" class="video-placeholder">
-              <span>MEDIA PLACEHOLDER</span><br>
-              <span style="font-size: 0.8rem; opacity: 0.8;">(Video will be embedded here)</span>
-            </div>
-            <video id="detail-video" class="detail-video" controls style="display: none; width: 100%; height: 100%; object-fit: contain; z-index: 10; background: #000;"></video>
-          </div>
-          
-          <div class="detail-text-box">
-            <h3 class="detail-subtitle">PROJECT OVERVIEW</h3>
-            <p id="detail-description" class="detail-description">
-              Project description will go here...
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Main Projects Grid -->
-      <div id="projects-grid" class="projects-grid">
+      <!-- Main Projects Bento Grid -->
+      <div class="projects-bento-grid">
         <!-- Project Card 1: Boundr -->
-        <article class="project-card tilt-card panel-blue" data-category="product" data-project-id="boundr">
-          <div class="card-edge-effect"></div>
-          <div class="project-image-container">
-            <div class="project-img-placeholder halftone-bg" style="--color-main: var(--color-blue)">
-              <div class="inner-icon">📦</div>
+        <div class="project-bento-card" style="--card-glow: var(--color-blue)">
+          <div class="card-glow-layer"></div>
+          <div class="project-card-header">
+            <div class="header-left">
+              <h3 class="project-title">Boundr</h3>
+              <div class="project-tags">
+                <span>Product</span>
+                <span>Next.js</span>
+                <span>Postgres</span>
+              </div>
             </div>
-            <div class="project-badge">PRODUCT-01</div>
+            <a href="https://github.com/Rayyanad/boundr_project" target="_blank" class="project-action-btn" aria-label="View Source Code">
+              <svg class="github-icon" viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" fill="currentColor"/>
+              </svg>
+            </a>
           </div>
-          <div class="project-info">
-            <h3 class="project-title">Boundr</h3>
-            <p class="project-description">A platform centralizing student-to-recruiter outreach into a dedicated professional channel.</p>
-            <div class="project-tags">
-              <span>Product</span>
-              <span>Platform</span>
-            </div>
-            <a href="javascript:void(0)" class="project-link">VIEW PROJECT <span>&rarr;</span></a>
+          <p class="project-description">
+            A platform that centralizes student-to-recruiter outreach into a dedicated professional channel, solving fragmented email/LinkedIn outreach.
+          </p>
+          <div class="project-media-viewport">
+            <video class="project-preview-video" src="Boundr.MOV" autoplay loop muted playsinline></video>
           </div>
-        </article>
+        </div>
 
         <!-- Project Card 2: LoraxAI -->
-        <article class="project-card tilt-card panel-red" data-category="ml" data-project-id="loraxai">
-          <div class="card-edge-effect"></div>
-          <div class="project-image-container">
-            <div class="project-img-placeholder halftone-bg" style="--color-main: var(--color-red)">
-              <div class="inner-icon">🌲</div>
+        <div class="project-bento-card" style="--card-glow: var(--color-red)">
+          <div class="card-glow-layer"></div>
+          <div class="project-card-header">
+            <div class="header-left">
+              <h3 class="project-title">LoraxAI</h3>
+              <div class="project-tags">
+                <span>ML</span>
+                <span>Edge AI</span>
+                <span>Python</span>
+                <span>IoT</span>
+              </div>
             </div>
-            <div class="project-badge">ML-01</div>
+            <a href="https://github.com/Rayyanad/Calgary-Hacks-2025" target="_blank" class="project-action-btn" aria-label="View Source Code">
+              <svg class="github-icon" viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" fill="currentColor"/>
+              </svg>
+            </a>
           </div>
-          <div class="project-info">
-            <h3 class="project-title">LoraxAI</h3>
-            <p class="project-description">Distributed wildfire and forest monitoring system using audio-based machine learning on edge devices.</p>
-            <div class="project-tags">
-              <span>Machine Learning</span>
-              <span>Edge AI</span>
-              <span>IoT</span>
+          <p class="project-description">
+            Distributed forest monitoring system utilizing edge hardware and audio machine learning to autonomously detect early-stage wildfires and chainsaw activity.
+          </p>
+          <div class="project-media-viewport">
+            <video class="project-preview-video" src="LoraxAI.mov" autoplay loop muted playsinline></video>
+          </div>
+        </div>
+
+        <!-- Project Card 3: Ecom Friction Agent -->
+        <div class="project-bento-card" style="--card-glow: var(--color-yellow)">
+          <div class="card-glow-layer"></div>
+          <div class="project-card-header">
+            <div class="header-left">
+              <h3 class="project-title">Ecom Friction Agent</h3>
+              <div class="project-tags">
+                <span>Product</span>
+                <span>AI Analytics</span>
+                <span>E-Commerce</span>
+                <span>TypeScript</span>
+              </div>
             </div>
-            <a href="javascript:void(0)" class="project-link">VIEW PROJECT <span>&rarr;</span></a>
+            <a href="https://github.com/Rayyanad/Ecom-frictionAI" target="_blank" class="project-action-btn" aria-label="View Source Code">
+              <svg class="github-icon" viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" fill="currentColor"/>
+              </svg>
+            </a>
           </div>
-        </article>
+          <p class="project-description">
+            An AI-powered e-commerce friction analysis platform that helps identify customer drop-off points, surface friction signals, and provide actionable insights to improve conversion rates.
+          </p>
+          <div class="project-media-viewport">
+            <img class="project-preview-image" src="friction-analysis.png" alt="Ecom Friction Agent Dashboard Mockup">
+          </div>
+        </div>
       </div>
     </section>
 
