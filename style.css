@@ -336,11 +336,11 @@ html {
 }
 
 .social-pill {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   padding: 8px 16px;
   color: var(--color-text-primary);
@@ -350,10 +350,47 @@ html {
   transition: all var(--transition-fast);
 }
 
+.social-pill .social-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
 .social-pill:hover {
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.18);
   transform: translateY(-2px);
+}
+
+.social-pill:hover .social-icon {
+  transform: scale(1.12);
+}
+
+/* Brand specific hover accents */
+.social-pill.linkedin-pill:hover,
+.footer-link-bubble.linkedin-pill:hover {
+  color: #0a66c2;
+  border-color: rgba(10, 102, 194, 0.4);
+  background: rgba(10, 102, 194, 0.12);
+  box-shadow: 0 0 16px rgba(10, 102, 194, 0.25);
+}
+
+.social-pill.twitter-pill:hover,
+.footer-link-bubble.twitter-pill:hover {
+  color: #1da1f2;
+  border-color: rgba(29, 161, 242, 0.4);
+  background: rgba(29, 161, 242, 0.12);
+  box-shadow: 0 0 16px rgba(29, 161, 242, 0.25);
+}
+
+.social-pill.email-pill:hover,
+.footer-link-bubble.email-pill:hover {
+  color: var(--color-red);
+  border-color: rgba(255, 59, 48, 0.4);
+  background: rgba(255, 59, 48, 0.12);
+  box-shadow: 0 0 16px rgba(255, 59, 48, 0.25);
 }
 
 /* Neon Spider Card Widget */
@@ -871,6 +908,9 @@ html {
 }
 
 .footer-link-bubble {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-sans);
   text-decoration: none;
   background: rgba(255, 255, 255, 0.03);
@@ -881,6 +921,18 @@ html {
   font-weight: 500;
   border-radius: 20px;
   transition: all var(--transition-fast);
+}
+
+.footer-link-bubble .social-icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.footer-link-bubble:hover .social-icon {
+  transform: scale(1.12);
 }
 
 .footer-link-bubble:hover {
