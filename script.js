@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add hover states for interactive elements
     const setupCursorHovers = () => {
-      const interactiveElements = document.querySelectorAll('a, button, .polaroid-card, .skill-tag, .project-action-btn');
+      const interactiveElements = document.querySelectorAll('a, button, .polaroid-card, .project-media-viewport, .skill-tag, .project-action-btn');
       interactiveElements.forEach(el => {
         // Prevent duplicate bindings
         if (el.dataset.cursorBound) return;
@@ -227,17 +227,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 7. PHOTOGRAPHY LIGHTBOX SYSTEM
+  // 7. LIGHTBOX SYSTEM (PHOTOGRAPHY & PROJECT MEDIA)
   const polaroids = document.querySelectorAll('.polaroid-card');
+  const projectMediaViewports = document.querySelectorAll('.project-media-viewport');
   const lightbox = document.getElementById('lightbox');
   const lightboxPlaceholder = document.getElementById('lightbox-placeholder');
   const lightboxCaption = document.getElementById('lightbox-caption');
   const lightboxClose = document.querySelector('.lightbox-close');
 
+  const closeLightbox = () => {
+    if (!lightbox) return;
+    // Pause any playing videos before clearing placeholder
+    const videos = lightboxPlaceholder ? lightboxPlaceholder.querySelectorAll('video') : [];
+    videos.forEach(v => {
+      v.pause();
+      v.src = '';
+    });
+    if (lightboxPlaceholder) {
+      lightboxPlaceholder.innerHTML = '';
+    }
+    lightbox.style.display = 'none';
+  };
+
+  // Photography Polaroids
   polaroids.forEach(polaroid => {
     polaroid.addEventListener('click', () => {
       const imgElement = polaroid.querySelector('.real-photo');
-      const captionText = polaroid.querySelector('.polaroid-caption').textContent;
+      const captionText = polaroid.querySelector('.polaroid-caption') ? polaroid.querySelector('.polaroid-caption').textContent : '';
 
       if (imgElement && lightbox && lightboxPlaceholder && lightboxCaption) {
         const clonedImg = imgElement.cloneNode(true);
@@ -250,22 +266,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  if (lightboxClose && lightbox) {
-    lightboxClose.addEventListener('click', () => {
-      lightbox.style.display = 'none';
+  // Project Media Viewports (Videos & Demo Screenshots)
+  projectMediaViewports.forEach(viewport => {
+    viewport.addEventListener('click', () => {
+      const card = viewport.closest('.project-bento-card');
+      const title = card ? card.querySelector('.project-title').textContent : 'Project Demo';
+      const videoElement = viewport.querySelector('video');
+      const imgElement = viewport.querySelector('img');
+
+      if (!lightbox || !lightboxPlaceholder || !lightboxCaption) return;
+      lightboxPlaceholder.innerHTML = '';
+
+      if (videoElement) {
+        const lightboxVid = document.createElement('video');
+        lightboxVid.src = videoElement.getAttribute('src');
+        lightboxVid.className = 'lightbox-video';
+        lightboxVid.controls = true;
+        lightboxVid.autoplay = true;
+        lightboxVid.loop = true;
+        lightboxVid.playsInline = true;
+        lightboxPlaceholder.appendChild(lightboxVid);
+        lightboxCaption.textContent = `${title} — Interactive Demo Preview`;
+        lightbox.style.display = 'flex';
+        lightboxVid.play().catch(() => {});
+      } else if (imgElement) {
+        const clonedImg = imgElement.cloneNode(true);
+        clonedImg.className = 'real-photo';
+        lightboxPlaceholder.appendChild(clonedImg);
+        lightboxCaption.textContent = `${title} — Project Screenshot`;
+        lightbox.style.display = 'flex';
+      }
     });
+  });
+
+  if (lightboxClose && lightbox) {
+    lightboxClose.addEventListener('click', closeLightbox);
 
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) {
-        lightbox.style.display = 'none';
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+        closeLightbox();
       }
     });
   }
 
   // 8. GLOBAL CLICK WEB-SHOOTER ACTION (Explosion triggered on any click)
   document.addEventListener('click', (e) => {
-    // Avoid triggering web shooter if clicking links, buttons, lightbox, or music player
-    if (e.target.closest('a') || e.target.closest('button') || e.target.closest('#lightbox') || e.target.closest('#music-player')) {
+    // Avoid triggering web shooter if clicking links, buttons, lightbox, music player, or project media
+    if (e.target.closest('a') || e.target.closest('button') || e.target.closest('#lightbox') || e.target.closest('#music-player') || e.target.closest('.project-media-viewport')) {
       return;
     }
     triggerWebExplosion(e.clientX, e.clientY);
